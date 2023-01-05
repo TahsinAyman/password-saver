@@ -29,18 +29,22 @@ def create(request):
 	else:
 		return HttpResponse("method not allowed")
 
+# 
 
+@csrf_exempt
 def admin(request):
 	admin_name = "ISHAAN"
-	password_admin = "afkaj()jhhkbvhdu87 tiyfhv"
+	password_admin = "12345"
 	if request.method == "POST":
 		data = json.loads(request.body)
 		username = data.get("adminname")
 		password= data.get("password")
 		if username == admin_name and password == password_admin:
-			data = json.loads(models.give_all())
-			return JsonResponse(data)
-
+			# data = json.loads(models.give_all())
+			print(models.give_all())
+			return HttpResponse("Hello")
+		else:
+			return HttpResponse("Wrong Credential")
 	else: return HttpResponse("sorry!!")		
 
 

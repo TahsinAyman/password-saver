@@ -15,7 +15,12 @@ export default function AppController() {
 
   return (
     <GlobalContext.Provider value={{ popup }}>
-      <App message={message} alertType={alertType} open={open} />
+      <App
+        message={message}
+        alertType={alertType}
+        open={open}
+        setOpen={setOpen}
+      />
     </GlobalContext.Provider>
   );
 }
